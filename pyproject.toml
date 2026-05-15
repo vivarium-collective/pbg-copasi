@@ -21,3 +21,6 @@ dev = ["pytest", "bigraph-viz", "matplotlib"]
 
 [tool.setuptools.packages.find]
 include = ["pbg_copasi*"]
+
+[tool.setuptools.package-data]
+"pbg_copasi.composites" = ["*.xml", "*.yaml"]

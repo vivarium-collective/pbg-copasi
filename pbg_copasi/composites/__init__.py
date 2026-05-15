@@ -225,6 +225,8 @@ _INLINE_PLACEHOLDER = re.compile(r"\$\{([a-zA-Z_][a-zA-Z0-9_]*)\}")
 
 
 def _cast(value: Any, declared_type: str | None) -> Any:
+    if value is None:
+        return value
     if declared_type is None:
         return value
     if declared_type == "float":
