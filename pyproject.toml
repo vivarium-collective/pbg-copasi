@@ -12,6 +12,8 @@ dependencies = [
     "bigraph-schema",
     "copasi-basico",
     "python-copasi",
+    "pbg-superpowers",
+    "pyyaml",
 ]
 
 [project.optional-dependencies]
