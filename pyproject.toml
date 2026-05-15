@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pbg-copasi"
+version = "0.1.0"
+description = "process-bigraph-compatible COPASI Steps and Processes (UTC + SteadyState)"
+requires-python = ">=3.9"
+dependencies = [
+    "process-bigraph>=0.0.10",
+    "bigraph-schema",
+    "copasi-basico",
+    "python-copasi",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "bigraph-viz", "matplotlib"]
+
+[tool.setuptools.packages.find]
+include = ["pbg_copasi*"]
