@@ -8,7 +8,6 @@ from basico import (
     load_model,
     get_species,
     get_reactions,
-    set_species,
     run_time_course,
     run_steadystate,
 )
@@ -147,7 +146,7 @@ class CopasiUTCStep(Step, BaseCopasi):
 
     def update(self, inputs):
         # Apply incoming concentrations
-        spec_data = inputs.get('counts', {}) or {}
+        spec_data = inputs.get('species_counts', {}) or {}
         changes = [
             (name, float(value))
             for name, value in spec_data.items()
@@ -342,7 +341,7 @@ class CopasiUTCProcess(Process, BaseCopasi):
         )
 
         # Extract time points
-        time = tc["Time"].tolist() if "Time" in tc.columns else []
+        time = tc.index.tolist()
 
         # --- 3) Read back final state: export SBML IDs ----
         species_concentrations = {
